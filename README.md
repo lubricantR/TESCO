@@ -63,3 +63,31 @@ For the purpose of reproduction, we have provided the entire contents of this di
 - **File**: `python.tar.gz`
 
 To reproduce our results, please extract this archive into the corresponding path within the OpenBumbleBee environment.
+
+---
+# Reproduction of SHAFT Experiments (NDSS '25)
+
+This document covers the reproduction and enhancement of **SHAFT (Secure, Handy, Accurate, and Fast Transformer Inference)**, as presented at [NDSS 2025](https://www.ndss-symposium.org/ndss-paper/shaft-secure-handy-accurate-and-fast-transformer-inference/).
+
+## Background and Installation
+The official implementation is available at the [SHAFT GitHub repository](https://github.com/andeskyl/SHAFT). The framework is built entirely upon [Facebook's CrypTen](https://github.com/facebookresearch/CrypTen/tree/main) library. 
+
+To set up the environment and perform baseline tests, please follow the detailed installation guide provided in the official [SHAFT repository](https://github.com/andeskyl/SHAFT).
+
+## Improvements and Bug Fixes
+During our reproduction process, we identified several limitations and technical issues in the original source code. We have implemented the following enhancements to ensure stable and efficient execution:
+
+### 1. Multi-GPU Support
+By default, CrypTen is restricted to single-GPU execution. We extended the backend to support **multi-GPU environments**, allowing for improved computational performance and scalability.
+
+### 2. ONNX Operator Improvements (BERT Support)
+We identified that the original implementation caused runtime errors during BERT inference due to incompatible ONNX operations. We optimized and fixed the implementation of the following operators:
+- **`Less`**
+- **`Range`**
+These fixes resolve the crashes previously encountered when running BERT-based models.
+
+### 3. Computation Graph Scheduling (GPT-2 Support)
+We discovered scheduling issues within the ONNX computation graph that led to inference failures for GPT-2. We improved the **graph scheduling logic** to ensure the model executes correctly and efficiently.
+
+## Code Availability
+Our improved version of the SHAFT codebase, which includes the multi-GPU support and model-specific bug fixes, is integrated into the provided source files. Please refer to our modified scripts to run the BERT and GPT-2 inference benchmarks successfully.
