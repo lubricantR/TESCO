@@ -89,5 +89,3 @@ These fixes resolve the crashes previously encountered when running BERT-based m
 ### 3. Computation Graph Scheduling (GPT-2 Support)
 We discovered scheduling issues within the ONNX computation graph that led to inference failures for GPT-2. We improved the **graph scheduling logic** to ensure the model executes correctly and efficiently.
 
-## Code Availability
-Our improved version of the SHAFT codebase, which includes the multi-GPU support and model-specific bug fixes, is integrated into the provided source files. Please refer to our modified scripts to run the BERT and GPT-2 inference benchmarks successfully.
