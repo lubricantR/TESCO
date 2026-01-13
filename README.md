@@ -1,7 +1,7 @@
-# code repository of TESCO
+# Code Repository of TESCO
 # TESCO Implementation & Configuration
 
-Our implementation, **TESCO**, builds upon the SHAFT codebase but introduces significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
+Our implementation, **TESCO**, builds upon the [SHAFT codebase](https://github.com/andeskyl/SHAFT/blob/main/README.md) but introduces significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
 
 ## Configuration
 Key features and optimizations can be toggled via the configuration file located at `configs/default.yaml`. This file allows you to control the activation of:
@@ -133,4 +133,33 @@ These fixes resolve the crashes previously encountered when running BERT-based m
 
 ### 3. Computation Graph Scheduling (GPT-2 Support)
 We discovered scheduling issues within the ONNX computation graph that led to inference failures for GPT-2. We improved the **graph scheduling logic** to ensure the model executes correctly and efficiently.
+---
+# Reproduction of Mosformer Experiments (CCS ’25)
 
+This section details the reproduction process for the experiments presented in **Mosformer**.
+
+## Online Phase: End-to-End Evaluation
+We successfully executed and verified the end-to-end performance of the following models using the provided source code:
+*   **GPT-2**
+*   **BERT**
+
+These tests were performed directly using the scripts and configurations provided in the official repository.
+
+## Offline Phase: Methodology & Estimation
+A limitation of the official Mosformer codebase is that it contains only the **online execution logic**. For offline resource generation, the authors cite the use of an external library, `NSSMPClib`.
+
+To accurately reproduce the offline communication and time costs, we adopted a calculation-based approach:
+
+1.  **Component Analysis**: We identified that all non-linear operations in Mosformer rely on **MSB (Most Significant Bit)** protocols and **Lookup Tables (LUT)**.
+2.  **Online Instrumentation**: We modified the Mosformer online source code by inserting counters into the relevant functions. This allowed us to record exactly how many times MSB and LUTs (of various sizes) were invoked during inference. These counts correspond to the number of offline keys required.
+3.  **Offline Benchmarking**: We executed the `NSSMPClib` library (specifically the Function Secret Sharing implementations) to measure the communication volume and runtime required to generate a *single* key for both LUTs and DCFs (Distributed Comparison Functions).
+4.  **Total Cost Calculation**: We derived the total offline overhead by multiplying the unit generation costs (from Step 3) by the total usage counts (from Step 2).
+
+## Artifacts and Modifications
+We have packaged our modified environment, including the instrumented code for counting key usage, into a compressed archive:
+
+*   **File**: `Mosformer.zip`
+
+To reproduce our results:
+1.  Extract this archive into the corresponding path within the Mosformer environment.
+2.  Run the testing scripts following the instructions provided in the original paper.
