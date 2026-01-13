@@ -48,7 +48,7 @@ Once the environment is configured, you can find the specific experiments within
     Assessments of private inference costs for **BERT**.
 
 ---
-  # Reproduction of BLB Experiments (USENIX Security '25)
+  # Reproduction of BLB Experiments (USENIX Security '2025)
   
   This section details the reproduction process for the experiments presented in **"Breaking Layer Barrier" (BLB)**.
   
@@ -82,7 +82,7 @@ cmake --build . --config Release
 ./bin/ckks_bert_large_main r=1 nt=32 & ./bin/ckks_bert_large_main r=2 nt=32
 ```
 ---
-# Reproduction of BumbleBee Experiments (NDSS '25)
+# Reproduction of BumbleBee Experiments (NDSS '2025)
 
 This document describes the reproduction and benchmarking process for the **BumbleBee** framework, based on the [original paper](https://eprint.iacr.org/2023/1678.pdf) and the official [OpenBumbleBee GitHub repository](https://github.com/AntCPLab/OpenBumbleBee).
 
@@ -110,7 +110,7 @@ For the purpose of reproduction, we have provided the entire contents of this di
 To reproduce our results, please extract this archive into the corresponding path within the OpenBumbleBee environment.
 
 ---
-# Reproduction of SHAFT Experiments (NDSS '25)
+# Reproduction of SHAFT Experiments (NDSS '2025)
 
 This document covers the reproduction and enhancement of **SHAFT (Secure, Handy, Accurate, and Fast Transformer Inference)**, as presented at [NDSS 2025](https://www.ndss-symposium.org/ndss-paper/shaft-secure-handy-accurate-and-fast-transformer-inference/).
 
@@ -133,8 +133,10 @@ These fixes resolve the crashes previously encountered when running BERT-based m
 
 ### 3. Computation Graph Scheduling (GPT-2 Support)
 We discovered scheduling issues within the ONNX computation graph that led to inference failures for GPT-2. We improved the **graph scheduling logic** to ensure the model executes correctly and efficiently.
+
 ---
-# Reproduction of Mosformer Experiments (CCS ’25)
+
+# Reproduction of Mosformer Experiments (ACM CCS ’2025)
 
 This section details the reproduction process for the experiments presented in **Mosformer**.
 
