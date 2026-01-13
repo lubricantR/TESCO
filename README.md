@@ -167,3 +167,44 @@ We have packaged our modified environment, including the instrumented code for c
 To reproduce our results:
 1.  Extract this archive into the corresponding path within the Mosformer environment.
 2.  Run the testing scripts following the instructions provided in the original paper.
+
+---
+# Reproduction of Sigma Experiments (PETS ’24)
+
+This section outlines our efforts to reproduce the experiments presented in **Sigma** ([DOI: 10.56553/popets-2024-0107](https://doi.org/10.56553/popets-2024-0107)). Our work is based on the [official GitHub repository](https://github.com/mpc-msri/EzPC/blob/master/GPU-MPC/experiments/sigma/).
+
+## End-to-End Evaluation
+We utilized the provided source code to evaluate models such as **GPT-2** and **BERT**. Our testing procedure largely followed the scripts and configurations found in the official repository.
+
+## Component Benchmarking
+To evaluate individual components, we employed the following command sequences. These examples demonstrate how the build and execution processes were structured during our tests:
+
+### 1. GELU
+```bash
+make gelu
+./gelu gpt2 0 127.0.0.1 1000000
+./gelu gpt2 1 127.0.0.1 1000000
+```
+### 2. ReLU
+```
+make relu
+./relu gpt2 0 1000000 127.0.0.1
+./relu gpt2 1 1000000 127.0.0.1
+```
+### 3. Softmax
+```
+make softmax
+./softmax gpt2 0 128 128 127.0.0.1
+./softmax gpt2 1 128 128 127.0.0.1
+```
+## Modifications and Observations
+During the replication process, we observed behaviors suggesting potential stability issues in specific environments. To mitigate these, we applied the following adjustment:
+
+GPU Memory Management: We encountered errors indicative of GPU memory exhaustion. To address this, we lowered the threshold defined in /home/sigma/GPU-MPC/utils/gpu_mem.cu (specifically around line 49). In our testing environment, this modification appeared to prevent the application from crashing.
+## Artifact Availability
+The codebase containing our specific modifications and benchmarks is located in /home/Sigma/.
+
+For reproduction purposes, we have packaged this directory into an archive:
+
+File: Sigma.tar.gz
+To replicate our experimental setup, extract this archive into the corresponding path within the Sigma environment and proceed with the testing scripts as described in the original paper.
