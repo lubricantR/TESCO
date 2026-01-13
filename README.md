@@ -1,5 +1,4 @@
-# TESCO
-code repository of TESCO
+# code repository of TESCO
 # TESCO Implementation & Configuration
 
 Our implementation, **TESCO**, builds upon the SHAFT codebase but introduces significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
