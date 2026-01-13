@@ -1,7 +1,7 @@
-# Code Repository of TESCO
+
 # TESCO Implementation & Configuration
 
-Our implementation, **TESCO**, builds upon the [SHAFT codebase](https://github.com/andeskyl/SHAFT/blob/main/README.md) but introduces significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
+Our implementation of **Every Little Helps: Secure Transformer Inference with TEE-assisted (2+1)-Party Secure Computation**, builds upon the [SHAFT codebase](https://github.com/andeskyl/SHAFT/blob/main/README.md) but introduces significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
 
 ## Configuration
 Key features and optimizations can be toggled via the configuration file located at `configs/default.yaml`. This file allows you to control the activation of:
