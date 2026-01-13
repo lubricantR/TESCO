@@ -49,7 +49,7 @@ Once the environment is configured, you can find the specific experiments within
     Assessments of private inference costs for **BERT**.
 
 ---
-  ## Reproduction of BLB Experiments (USENIX Security '25)
+  # Reproduction of BLB Experiments (USENIX Security '25)
   
   This section details the reproduction process for the experiments presented in **"Breaking Layer Barrier" (BLB)**.
   
