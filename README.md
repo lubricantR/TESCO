@@ -1,8 +1,54 @@
 # TESCO
 code repository of TESCO
+# TESCO Implementation & Configuration
 
+Our implementation, **TESCO**, builds upon the SHAFT codebase but introduces significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
 
+## Configuration
+Key features and optimizations can be toggled via the configuration file located at `configs/default.yaml`. This file allows you to control the activation of:
+- The **(2+1)PC Framework**
+- **Embedding** Optimizations
+- **MSB (Most Significant Bit)** Optimizations
+- **Softmax** Optimizations
 
+## Installation Guide
+To set up the environment, please follow the [official SHAFT installation guide](https://github.com/andeskyl/SHAFT/blob/main/README.md) with one **critical modification**:
+
+1.  **Dependencies**: Complete **Steps 0, 1, and 3** from the SHAFT guide to install necessary dependencies.
+2.  **Package Installation**: 
+    - **Do NOT** execute Step 2 (`pip install .`) inside the original SHAFT directory.
+    - Instead, replace the `SHAFT` directory with our provided `TESCO` directory.
+    - Navigate into the `TESCO` directory and install the package:
+      ```bash
+      cd TESCO
+      pip install .
+      ```
+
+## Experiment Directories
+Once the environment is configured, you can find the specific experiments within the `/TESCO/examples` directory. The structure is as follows:
+
+*   **`buildingblocktest`** & **`testrelu`**  
+    Benchmarks for basic building blocks, including GELU, ReLU, LayerNorm, Softmax, MatMul, and Multi-Head Attention (MHA).
+
+*   **`gelu_gpt2acc`**  
+    Evaluation of GPT-2's accuracy on the WikiText-2 and PTB datasets.
+
+*   **`testsuperembedding`**  
+    Specific tests for our optimized **Embedding protocol**.
+
+*   **`testsupersoftmax`**  
+    Specific tests for our optimized **Softmax protocol**.
+
+*   **`text-generation`**  
+    Assessments of private inference costs specifically for **GPT-2**.
+
+*   **`VIT`**  
+    Analysis of private inference costs for **ViT-base** (Vision Transformer).
+
+*   **`BERT`**  
+    Assessments of private inference costs for **BERT**.
+
+---
   ## Reproduction of BLB Experiments (USENIX Security '25)
   
   This section details the reproduction process for the experiments presented in **"Breaking Layer Barrier" (BLB)**.
