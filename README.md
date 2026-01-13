@@ -1,15 +1,7 @@
 
 # TESCO Implementation & Configuration
 
-Our implementation of **Every Little Helps: Secure Transformer Inference with TEE-assisted (2+1)-Party Secure Computation**, builds upon the [SHAFT codebase](https://github.com/andeskyl/SHAFT/blob/main/README.md) but introduces significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
-
-## Configuration
-Key features and optimizations can be toggled via the configuration file located at `configs/default.yaml`. This file allows you to control the activation of:
-- The **(2+1)PC Framework**
-- **Embedding** Optimizations
-- **MSB (Most Significant Bit)** Optimizations
-- **Softmax** Optimizations
-
+Our implementation of **Every Little Helps: Secure Transformer Inference with TEE-assisted (2+1)-Party Secure Computation**, builds upon the [SHAFT codebase](https://github.com/andeskyl/SHAFT/blob/main/README.md) with significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
 ## Installation Guide
 To set up the environment, please follow the [official SHAFT installation guide](https://github.com/andeskyl/SHAFT/blob/main/README.md) with one **critical modification**:
 
@@ -22,6 +14,13 @@ To set up the environment, please follow the [official SHAFT installation guide]
       cd TESCO
       pip install .
       ```
+
+## Configuration
+Key features and optimizations can be toggled via the configuration file located at `configs/default.yaml`. This file allows you to control the activation of:
+- The **(2+1)PC Framework**
+- **Embedding** Optimizations
+- **MSB (Most Significant Bit)** Optimizations
+- **Softmax** Optimizations
 
 ## Experiment Directories
 Once the environment is configured, you can find the specific experiments within the `/TESCO/examples` directory. The structure is as follows:
