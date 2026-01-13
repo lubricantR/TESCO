@@ -16,7 +16,7 @@ To set up the environment, please follow the [official SHAFT installation guide]
 1.  **Dependencies**: Complete **Steps 0, 1, and 3** from the SHAFT guide to install necessary dependencies.
 2.  **Package Installation**: 
     - **Do NOT** execute Step 2 (`pip install .`) inside the original SHAFT directory.
-    - Instead, replace the `SHAFT` directory with our provided `TESCO` directory.
+    - Instead, decompress `TESCO.tar.gz` and replace the `SHAFT` directory with our provided `TESCO` directory.
     - Navigate into the `TESCO` directory and install the package:
       ```bash
       cd TESCO
@@ -46,6 +46,8 @@ Once the environment is configured, you can find the specific experiments within
 
 *   **`BERT`**  
     Assessments of private inference costs for **BERT**.
+    
+There is a bash script `launchrhy3.sh` in each folder for local test in host network, and `tdxlaunchrhy3.sh` for actual experiments. (Set the ip address of each party in `TESCO/crypten/communicator/distributed_communicator.py` before executing this script)
 
 ---
   # Reproduction of BLB Experiments (USENIX Security '2025)
