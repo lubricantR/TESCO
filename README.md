@@ -46,7 +46,7 @@ Once the environment is configured, you can find the specific experiments within
 *   **`BERT`**  
     Assessments of private inference costs for **BERT**.
     
-There is a bash script `launchrhy3.sh` in each folder for local test in host network, and `tdxlaunchrhy3.sh` for actual experiments. (Set the ip address of each party in `TESCO/crypten/communicator/distributed_communicator.py` before executing this script)
+There is a bash script `launchTESCO3.sh` in each folder for local test in host network, and `tdxlaunchTESCO3.sh` for actual experiments. (Set the ip address of each party in `TESCO/crypten/communicator/distributed_communicator.py` before executing this script)
 
 ---
   # Reproduction of BLB Experiments (USENIX Security '2025)
