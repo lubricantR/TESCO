@@ -8,7 +8,7 @@ To set up the environment, please follow the [official SHAFT installation guide]
 1.  **Dependencies**: Complete **Steps 0, 1, and 3** from the SHAFT guide to install necessary dependencies.
 2.  **Package Installation**: 
     - **Do NOT** execute Step 2 (`pip install .`) inside the original SHAFT directory.
-    - Instead, decompress `TESCO.tar.gz` and replace the `SHAFT` directory with our provided `TESCO` directory.
+    - Instead, decompress `TESCO.zip` and replace the `SHAFT` directory with our provided `TESCO` directory.
     - Navigate into the `TESCO` directory and install the package:
       ```bash
       cd TESCO
