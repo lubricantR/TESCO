@@ -3,7 +3,9 @@
 
 Our implementation of **Every Little Helps: Secure Transformer Inference with TEE-assisted (2+1)-Party Secure Computation**, builds upon the [SHAFT codebase](https://github.com/andeskyl/SHAFT/blob/main/README.md) with significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
 ## VM Configuration and TDX Attestation
-> For detailed configuration of TDX VM, refer to [TDX-VM-Configuration.md](TDX-VM-Configuration.md).
+For detailed configuration of TDX VM, refer to [TDX-VM-Configuration.md](TDX-VM-Configuration.md).
+After a TDX VM starts, it functions as a regular remote server and communicates with P0 on the host through a virtual network interface. From the perspective of the other TESCO participants, H is simply another remote participant. It can therefore run inside a TDX VM or be simulated on a standard server for debugging. In each subdirectory under examples, launchteep2.py launches H, while launchp0.py and launchp1.py launch P0 and P1, respectively.
+
 ## Installation Guide
 To set up the environment, please follow the [official SHAFT installation guide](https://github.com/andeskyl/SHAFT/blob/main/README.md) with one **critical modification**:
 
