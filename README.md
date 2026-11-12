@@ -2,6 +2,8 @@
 # TESCO Implementation & Configuration
 
 Our implementation of **Every Little Helps: Secure Transformer Inference with TEE-assisted (2+1)-Party Secure Computation**, builds upon the [SHAFT codebase](https://github.com/andeskyl/SHAFT/blob/main/README.md) with significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
+## VM Configuration and TDX Attestation
+see (TDX-VM-Configuration.md)
 ## Installation Guide
 To set up the environment, please follow the [official SHAFT installation guide](https://github.com/andeskyl/SHAFT/blob/main/README.md) with one **critical modification**:
 
