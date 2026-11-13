@@ -9,6 +9,89 @@ We provide our TDX VM image through a [anonymous link](https://figshare.com/s/d6
 
 In TESCO, **after TDX VM starts, it functions as a regular remote server** and communicates with P0 on the host through a virtual network interface. From the perspective of the other TESCO participants, H is simply another remote participant. It can therefore run inside a TDX VM or be simulated on a standard server for debugging. In each subdirectory under `TESCO/examples`, `launchteep2.py` launches H, while `launchp0.py` and `launchp1.py` launch P0 and P1, respectively.
 
+
+
+## Installation Guide
+
+### Prerequisites
+- **Python**(tested with version 3.11.12)
+- **Compiler**: GCC (tested with version 11.4.0)
+- **CUDA**: an NVIDIA driver compatible with CUDA 11.8 (PyTorch is installed from the `cu118` wheel index)
+- **System packages**:
+  ```bash
+  sudo apt update
+  sudo apt install -y build-essential python3.11-dev python3.11-venv git
+  ```
+- **TDX (optional)**: Running H inside a TDX VM requires a TDX-enabled host. Simulation mode does not need TDX.
+
+### 1. Create and activate a virtual environment
+```bash
+python3.11 -m venv .ctesco
+source .ctesco/bin/activate
+```
+
+### 2. Install PyTorch (CUDA 11.8 build)
+```bash
+python -m pip install torch==2.7.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
+
+### 3. Install Python dependencies
+```bash
+cd TESCO
+pip install -r requirements.txt
+```
+
+### 4. Build and install the AES-based RNG extension
+```bash
+cd TESCO/aesrng_ext/
+python setup.py install
+```
+> If the build fails, check that `gcc`/`g++` and the Python development headers are installed, and that the CPU supports AES-NI.
+
+### 5. Install TESCO in editable mode
+```bash
+cd TESCO
+pip install -e .
+```
+
+### 6. Verify the installation
+```bash
+python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+python -c "import crypten;"   # (package name inherited from SHAFT/CrypTen)
+```
+
+>  The provided TDX VM image already contain the environment in need. 
+
+## Running the Examples
+### **Network configuration**
+
+>  PyTorch distributed execution requires `MASTER_ADDR` and `MASTER_PORT` to be set. The default `./launchTESCO3.sh` configuration uses a local address. When using `./tdxlaunchTESCO3.sh`, update the master address and port as needed for your deployment. Configure the IP addresses, ports, and `GLOO_SOCKET_IFNAME` in these launch scripts to match the actual network interfaces and connectivity of your machines.
+
+Taking BERT accuracy test as an example:
+
+```bash
+cd examples/rBERTacc
+```
+**Option A: H inside a TDX VM**
+```bash
+./tdxlaunchTESCO3.sh
+```
+Start the TDX VM first (see the VM guides). Make sure P0 can reach the VM over the virtual network interface.
+
+**Option B: Simulation (H as a regular process/server, for debugging)**
+```bash
+./launchTESCO3.sh
+```
+
+
+
+
+
+
+
+
+
+
 ## Installation Guide
 To set up the environment, please follow the [official SHAFT installation guide](https://github.com/andeskyl/SHAFT/blob/main/README.md) with one **critical modification**:
 
