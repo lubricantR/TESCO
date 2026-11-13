@@ -2,8 +2,10 @@
 # TESCO Implementation & Configuration
 
 Our implementation of **Every Little Helps: Secure Transformer Inference with TEE-assisted (2+1)-Party Secure Computation**, builds upon the [SHAFT codebase](https://github.com/andeskyl/SHAFT/blob/main/README.md) with significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
-## VM Configuration and TDX Attestation
-We provide our TDX VM image through a [private link](https://figshare.com/s/d6f788874cabb0ae3495) on [Figshare](https://figshare.com/). For detailed launching and attestation configuration, refer to [VM-Launching-Guide.md](VM-Launching-Guide.md) and [TDX-VM-Configuration.md](TDX-VM-Configuration.md).
+
+## VM Configuration and TDX Attestation(added 12/11/2026)
+We provide our TDX VM image through a [anonymous link](https://figshare.com/s/d6f788874cabb0ae3495) on [Figshare](https://figshare.com/). For detailed launching and attestation configuration, refer to [VM-Launching-Guide.md](VM-Launching-Guide.md) and [TDX-VM-Configuration.md](TDX-VM-Configuration.md).
+> Due to GitHub’s file size limits, we host the VM image on Figshare rather than uploading it directly to the anonymous GitHub repository.
 
 In TESCO, **after TDX VM starts, it functions as a regular remote server** and communicates with P0 on the host through a virtual network interface. From the perspective of the other TESCO participants, H is simply another remote participant. It can therefore run inside a TDX VM or be simulated on a standard server for debugging. In each subdirectory under `TESCO/examples`, `launchteep2.py` launches H, while `launchp0.py` and `launchp1.py` launch P0 and P1, respectively.
 
