@@ -121,11 +121,11 @@ Once the environment is configured, you can find the specific experiments within
 *   **`rGPT-2`**  (added 12/11/2026)
     Assessments of private inference costs specifically for **GPT-2**.
     
-*   **`buildingblocktest`** & **`testrelu`**  
-    Benchmarks for basic building blocks, including GELU, ReLU, LayerNorm, Softmax, MatMul, and Multi-Head Attention (MHA).
+*   **`buildingblocktest`** & **`testrelu`**
+*   Benchmarks for basic building blocks, including GELU, ReLU, LayerNorm, Softmax, MatMul, and Multi-Head Attention (MHA).
 
-*   **`gelu_gpt2acc`**  
-    Evaluation of GPT-2's accuracy on the WikiText-2 and PTB datasets.
+*   **`gelu_gpt2acc`**
+*   Evaluation of GPT-2's accuracy on the WikiText-2 and PTB datasets.
 
 *   **`testsuperembedding`**  
     Specific tests for our optimized **Embedding protocol**.
