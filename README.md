@@ -85,6 +85,14 @@ Start the TDX VM first (see the VM guides).
 ./launchTESCO3.sh
 ```
 
+`limitipspeedcalaulatecomm.sh` measures a process's outgoing network traffic. We use this script to measure the actual communication volume of each party.
+
+Usage:
+
+```bash
+./limitipspeedcalaulatecomm.sh [bandwidth] [latency] -- [command]
+```
+
 
 
 
