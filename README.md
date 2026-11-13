@@ -4,7 +4,7 @@
 Our implementation of **Every Little Helps: Secure Transformer Inference with TEE-assisted (2+1)-Party Secure Computation**, builds upon the [SHAFT codebase](https://github.com/andeskyl/SHAFT/blob/main/README.md) with significant architectural changes. We have extended and rewritten the underlying protocols, participant setup, provider logic, and network configurations.
 
 ## VM Configuration and TDX Attestation(added 12/11/2026)
-We provide our TDX VM image through a [anonymous link](https://figshare.com/s/d6f788874cabb0ae3495) on [Figshare](https://figshare.com/). For detailed launching and attestation configuration, refer to [VM-Launching-Guide.md](VM-Launching-Guide.md) and [TDX-VM-Configuration.md](TDX-VM-Configuration.md).
+We provide our TDX VM image through an [anonymous link](https://figshare.com/s/d6f788874cabb0ae3495) on [Figshare](https://figshare.com/). For detailed launching and attestation configuration, refer to [VM-Launching-Guide.md](VM-Launching-Guide.md) and [TDX-VM-Configuration.md](TDX-VM-Configuration.md).
 > Due to GitHub’s file size limits, we host the VM image on Figshare rather than uploading it directly to the anonymous GitHub repository.
 
 In TESCO, **after TDX VM starts, it functions as a regular remote server** and communicates with P0 on the host through a virtual network interface. From the perspective of the other TESCO participants, H is simply another remote participant. It can therefore run inside a TDX VM or be simulated on a standard server for debugging. In each subdirectory under `TESCO/examples`, `launchteep2.py` launches H, while `launchp0.py` and `launchp1.py` launch P0 and P1, respectively.
@@ -60,23 +60,24 @@ python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 python -c "import crypten;"   # (package name inherited from SHAFT/CrypTen)
 ```
 
->  The provided TDX VM image already contain the environment in need. 
+>  The provided TDX VM image already contains the required environment. 
 
 ## Running the Examples(added 12/11/2026)
 ### **Network configuration**
 
->  PyTorch distributed execution requires `MASTER_ADDR` and `MASTER_PORT` to be set. The default `./launchTESCO3.sh` configuration uses a local address. When using `./tdxlaunchTESCO3.sh`, update the master address and port as needed for your deployment. Configure the IP addresses, ports, and `GLOO_SOCKET_IFNAME` in these launch scripts to match the actual network interfaces and connectivity of your machines.
+>  PyTorch distributed execution requires `MASTER_ADDR` and `MASTER_PORT` to be set. The default `./launchTESCO3.sh` configuration uses a local address. When using `./tdxlaunchTESCO3.sh`, update the master address and port as needed for your deployment. Configure the IP addresses, ports, and `GLOO_SOCKET_IFNAME` in these launch scripts to match the actual network interfaces and connectivity of your machines for P0,P1 and H.
 
-Taking BERT accuracy test as an example:
+Taking the BERT accuracy test as an example:
 
 ```bash
 cd examples/rBERTacc
 ```
 **Option A: H inside a TDX VM**
+Start the TDX VM first (see the VM guides).
 ```bash
 ./tdxlaunchTESCO3.sh
 ```
-Start the TDX VM first (see the VM guides). Make sure P0 can reach the VM over the virtual network interface.
+
 
 **Option B: Simulation (H as a regular process/server, for debugging)**
 ```bash
