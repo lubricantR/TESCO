@@ -69,7 +69,7 @@ After startup, the TDX VM acts as a regular remote server and communicates with 
 Taking the BERT accuracy test as an example:
 
 ```bash
-cd examples/rBERTacc
+cd TESCO/examples/rBERTacc
 ```
 **Option A: H inside a TDX VM**
 
