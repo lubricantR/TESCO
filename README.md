@@ -34,7 +34,7 @@ python -m pip install torch==2.7.0 torchvision torchaudio --index-url https://do
 ```
 
 ### 3. Install Python dependencies
-Decompress `TESCO_updated_12_11_2026.tar.gz`
+Decompress `TESCO_updated_12_11_2026.zip`
 ```bash
 cd TESCO
 pip install -r requirements.txt
