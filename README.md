@@ -73,6 +73,7 @@ Taking the BERT accuracy test as an example:
 cd examples/rBERTacc
 ```
 **Option A: H inside a TDX VM**
+
 Start the TDX VM first (see the VM guides).
 ```bash
 ./tdxlaunchTESCO3.sh
