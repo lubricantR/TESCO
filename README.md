@@ -90,7 +90,7 @@ Start the TDX VM first (see the VM guides).
 Usage:
 
 ```bash
-./limitipspeedcalaulatecomm.sh [bandwidth] [latency] -- [command]
+limitipspeedcalaulatecomm.sh [bandwidth] [latency] -- [command]
 ```
 
 
