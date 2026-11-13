@@ -47,6 +47,8 @@ python setup.py install
 > If the build fails, check that `gcc`/`g++` and the Python development headers are installed, and that the CPU supports AES-NI.
 
 ### 5. Install TESCO
+Decompress `TESCO_12_11_26.tar.gz`
+
 ```bash
 cd TESCO
 pip install -e .
