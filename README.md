@@ -117,8 +117,11 @@ Key features and optimizations can be toggled via the configuration file located
 Once the environment is configured, you can find the specific experiments within the `/TESCO/examples` directory. The structure is as follows:
 
 *   **`rBERTacc` and `rBERT`**  (added 12/11/2026)
+*   
     Evaluate BERT-base accuracy on the SST-2 and QNLI datasets, and analyze the cost of a single private inference.
+    
 *   **`rGPT-2`**  (added 12/11/2026)
+*   
     Assessments of private inference costs specifically for **GPT-2**.
     
 *   **`buildingblocktest`** & **`testrelu`**
