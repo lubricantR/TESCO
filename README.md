@@ -20,7 +20,7 @@ We provide our TDX VM image through an [anonymous link](https://figshare.com/s/d
   sudo apt update
   sudo apt install -y build-essential python3.11-dev python3.11-venv git
   ```
-- **TDX (optional)**: Running H inside a TDX VM requires a TDX-enabled host. Simulation mode does not need TDX.
+- **TDX**: Intel Trust Domain Extensions (TDX) is supported on select Intel Xeon server processors. To check whether your processor supports TDX, see [Intel’s support page](https://www.intel.com/content/www/us/en/support/articles/000091103/processors/intel-xeon-processors.html). The protocol can also be simulated without TDX protection on machines that do not support TDX; see **Running the Examples** for details.
 
 ### 1. Create and activate a virtual environment
 ```bash
@@ -46,7 +46,7 @@ python setup.py install
 ```
 > If the build fails, check that `gcc`/`g++` and the Python development headers are installed, and that the CPU supports AES-NI.
 
-### 5. Install TESCO in editable mode
+### 5. Install TESCO
 ```bash
 cd TESCO
 pip install -e .
