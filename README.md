@@ -26,7 +26,7 @@ In TESCO, **after TDX VM starts, it functions as a regular remote server** and c
 
 ### 1. Create and activate a virtual environment
 ```bash
-python3.11 -m venv .ctesco
+python -m venv .ctesco
 source .ctesco/bin/activate
 ```
 
