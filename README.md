@@ -11,7 +11,7 @@ In TESCO, **after TDX VM starts, it functions as a regular remote server** and c
 
 
 
-## Installation Guide
+## Installation Guide(added 12/11/2026)
 
 ### Prerequisites
 - **Python**(tested with version 3.11.12)
@@ -62,7 +62,7 @@ python -c "import crypten;"   # (package name inherited from SHAFT/CrypTen)
 
 >  The provided TDX VM image already contain the environment in need. 
 
-## Running the Examples
+## Running the Examples(added 12/11/2026)
 ### **Network configuration**
 
 >  PyTorch distributed execution requires `MASTER_ADDR` and `MASTER_PORT` to be set. The default `./launchTESCO3.sh` configuration uses a local address. When using `./tdxlaunchTESCO3.sh`, update the master address and port as needed for your deployment. Configure the IP addresses, ports, and `GLOO_SOCKET_IFNAME` in these launch scripts to match the actual network interfaces and connectivity of your machines.
